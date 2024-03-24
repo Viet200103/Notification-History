@@ -19,8 +19,6 @@ import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.logEvent
 import com.notisaver.R
 import com.notisaver.database.NotisaveDatabase
 import com.notisaver.database.NotisaveRepository
@@ -290,12 +288,6 @@ abstract class NotificationListFragment : Fragment(R.layout.fragment_notificatio
     private fun updateForm(form: NotificationFormat.Form) {
         val categoryId = getCategoryId()
         if (notificationFormat.getForm(categoryId) != form) {
-
-            FirebaseAnalytics.getInstance(requireContext()).logEvent("onChangeNotificationListForm") {
-                param(FirebaseAnalytics.Param.ITEM_CATEGORY, categoryId)
-                param(FirebaseAnalytics.Param.CONTENT_TYPE, form.name)
-            }
-
             notificationFormat.setForm(getCategoryId(), form)
             setupAdapter()
             recyclerView.adapter = notificationAdapter

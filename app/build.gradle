@@ -7,9 +7,7 @@ plugins {
 
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
     // Make sure that you have the Google services Gradle plugin
-    id 'com.google.gms.google-services'
     // Add the Crashlytics Gradle plugin
-    id 'com.google.firebase.crashlytics'
 }
 android {
     compileSdk 34
@@ -110,7 +108,4 @@ dependencies {
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
 
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
-    implementation platform('com.google.firebase:firebase-bom:32.2.3')
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
-    implementation 'com.google.firebase:firebase-analytics-ktx'
 }

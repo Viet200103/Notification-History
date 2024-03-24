@@ -14,9 +14,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
 import com.notisaver.R
 import com.notisaver.misc.createDetailsSettingIntent
 import com.notisaver.misc.findView
@@ -33,13 +30,6 @@ class TutorialBatteryFragment : AppCompatDialogFragment(R.layout.layout_battery_
     private var descriptionView: AppCompatTextView? = null
 
     private var statusView: AppCompatTextView? = null
-
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        firebaseAnalytics = Firebase.analytics
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -66,9 +56,6 @@ class TutorialBatteryFragment : AppCompatDialogFragment(R.layout.layout_battery_
 
         detailButton = findView(R.id.layout_battery_optimization_detail_setting)
         detailButton?.setOnClickListener {
-
-            firebaseAnalytics.logEvent("onBatteryDetailSetting", Bundle())
-
             val context = it.context
             startLauncherIntent(
                 context, createDetailsSettingIntent(context.packageName)
@@ -82,8 +69,6 @@ class TutorialBatteryFragment : AppCompatDialogFragment(R.layout.layout_battery_
             startLauncherIntent(
                 it.context, intent
             )
-
-            firebaseAnalytics.logEvent("onBatteryWhitelistClick", Bundle())
         }
 
         val assetManager = requireContext().assets

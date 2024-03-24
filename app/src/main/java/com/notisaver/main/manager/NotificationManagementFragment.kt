@@ -17,7 +17,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.notisaver.R
 import com.notisaver.database.AppTemplate
 import com.notisaver.main.BUNDLE_KEY
@@ -192,7 +191,6 @@ class NotificationManagementFragment : Fragment(R.layout.fragment_notification_m
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.menu_notification_manager_rescan -> {
-                FirebaseAnalytics.getInstance(requireContext()).logEvent("onRescanApp", Bundle())
                 invokeRescanAppOnDevice()
             }
         }

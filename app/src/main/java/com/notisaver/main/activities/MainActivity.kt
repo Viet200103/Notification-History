@@ -24,7 +24,6 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.notisaver.R
 import com.notisaver.main.MainViewModel
 import com.notisaver.main.NotisaveSetting
@@ -243,16 +242,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             when (position) {
                 0 -> {
                     tab.setText(R.string.notification_message)
-                    FirebaseAnalytics.getInstance(this).logEvent(
-                        "tab_message", Bundle()
-                    )
                 }
 
                 1 -> {
                     tab.setText(R.string.notification_history)
-                    FirebaseAnalytics.getInstance(this).logEvent(
-                        "tab_history", Bundle()
-                    )
                 }
             }
 

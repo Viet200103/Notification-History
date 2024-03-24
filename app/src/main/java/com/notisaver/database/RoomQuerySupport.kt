@@ -3,7 +3,6 @@ package com.notisaver.database
 import androidx.room.util.appendPlaceholders
 import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
-import com.google.firebase.analytics.FirebaseAnalytics
 
 class RoomQuerySupport {
     companion object {
